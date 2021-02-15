@@ -18,7 +18,11 @@ student_db = TinyDB(db_file_path)
 def add_student(student):
     queries = []
     query = Query()
+    if student.first_name is None:
+        return 'Invalid input', 405
     queries.append(query.first_name == student.first_name)
+    if student.last_name is None:
+        return 'Invalid input', 405
     queries.append(query.last_name == student.last_name)
     query = reduce(lambda a, b: a & b, queries)
     res = student_db.search(query)
