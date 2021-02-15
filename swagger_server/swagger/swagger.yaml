@@ -102,14 +102,12 @@ definitions:
       last_name:
         type: "string"
       grades:
-        type: "array"
-        items:
+        type: "object"
+        additionalProperties:
           type: "integer"
-          format: "int32"
     example:
       student_id: 0
       last_name: "last_name"
       grades:
-      - 6
-      - 6
+        key: 6
       first_name: "first_name"
